@@ -45,6 +45,18 @@ class CalculadoraTest {
         assertEquals("no se puede dividir para cero", error.getMessage());
     }
 
+    @ParameterizedTest(name = "{0} ^ {1} = {2}")
+    @CsvSource({
+            "12, 4, 20736",
+            "2, 10, 1024",
+            "2, -1, 0.5",
+            "7, 0, 1"
+    })
+    @DisplayName("Eleva un número a una potencia")
+    void elevaAUnaPotencia(double base, double exponente, double resultado) {
+        assertEquals(resultado, calculadora.potencia(base, exponente), MARGEN);
+    }
+
     @ParameterizedTest(name = "{0} + {1} = {2}")
     @CsvSource({
             "-2, 3, 1",

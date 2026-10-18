@@ -30,8 +30,8 @@ class VisorOperacionesTest {
     }
 
     @Test
-    @DisplayName("Muestra las cuatro operaciones en la terminal, en orden")
-    void muestraLasCuatroOperaciones() {
+    @DisplayName("Muestra las cinco operaciones en la terminal, en orden")
+    void muestraLasCincoOperaciones() {
         visor.mostrarOperaciones(12, 4);
 
         InOrder enOrden = inOrder(terminal);
@@ -40,6 +40,7 @@ class VisorOperacionesTest {
         enOrden.verify(terminal).mostrar("12 - 4 = 8");
         enOrden.verify(terminal).mostrar("12 * 4 = 48");
         enOrden.verify(terminal).mostrar("12 / 4 = 3");
+        enOrden.verify(terminal).mostrar("12 ^ 4 = 20736");
         verifyNoMoreInteractions(terminal);
     }
 
@@ -58,5 +59,16 @@ class VisorOperacionesTest {
 
         verify(terminal).mostrar("12 * 0 = 0");
         verify(terminal).mostrar("12 / 0 -> no se puede dividir para cero");
+        verify(terminal).mostrar("12 ^ 0 = 1");
+    }
+
+    @Test
+    @DisplayName("Muestra si la potencia queda indefinida o es infinita")
+    void muestraPotenciaIndefinidaOInfinita() {
+        visor.mostrarOperaciones(-8, 0.5);
+        visor.mostrarOperaciones(10, 400);
+
+        verify(terminal).mostrar("-8 ^ 0.5 = indefinido");
+        verify(terminal).mostrar("10 ^ 400 = infinito");
     }
 }

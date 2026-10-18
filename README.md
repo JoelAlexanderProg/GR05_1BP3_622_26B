@@ -16,13 +16,13 @@ Práctica 3 de Metodologías Ágiles (ISWD622, EPN, 2026-B), Grupo 5: integraci�
 
 ```
 src/main/java/ec/edu/epn/operaciones/
-├── Calculadora.java        suma, resta, multiplica y divide dos números
+├── Calculadora.java        suma, resta, multiplica, divide y eleva a una potencia
 ├── Terminal.java           interfaz para mostrar líneas de texto
 ├── TerminalConsola.java    terminal real: escribe en la consola
 ├── VisorOperaciones.java   muestra en la terminal las operaciones con dos números
 └── Aplicacion.java         punto de entrada del JAR
 src/test/java/ec/edu/epn/operaciones/
-├── CalculadoraTest.java       pruebas unitarias con JUnit (una de ellas con parámetros)
+├── CalculadoraTest.java       pruebas unitarias con JUnit (dos de ellas con parámetros)
 └── VisorOperacionesTest.java  pruebas con Mockito: la terminal es un objeto simulado
 ```
 
@@ -43,6 +43,7 @@ Operaciones con 12 y 4
 12 - 4 = 8
 12 * 4 = 48
 12 / 4 = 3
+12 ^ 4 = 20736
 ```
 
 Sin números, usa 12 y 4 como ejemplo.

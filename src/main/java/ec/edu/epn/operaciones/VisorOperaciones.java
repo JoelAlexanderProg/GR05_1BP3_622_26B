@@ -31,6 +31,7 @@ public class VisorOperaciones {
         } catch (ArithmeticException e) {
             terminal.mostrar(formatear(a) + " / " + formatear(b) + " -> " + e.getMessage());
         }
+        mostrar(a, "^", b, calculadora.potencia(a, b));
     }
 
     private void mostrar(double a, String operador, double b, double resultado) {
@@ -38,6 +39,13 @@ public class VisorOperaciones {
     }
 
     private static String formatear(double numero) {
+        // Por ejemplo, -8 ^ 0.5 no es un número real y 10 ^ 400 no cabe en un double
+        if (Double.isNaN(numero)) {
+            return "indefinido";
+        }
+        if (Double.isInfinite(numero)) {
+            return numero > 0 ? "infinito" : "-infinito";
+        }
         // Sumar 0.0 convierte -0.0 en 0.0, para no mostrar "-0"
         return FORMATO.format(numero + 0.0);
     }
