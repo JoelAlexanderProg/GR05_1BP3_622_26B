@@ -41,6 +41,19 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.16.0</version>
             </plugin>
+            <!-- JAR ejecutable: java -jar target/GR05_1BP3_622_26B.jar 12 4 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ec.edu.epn.operaciones.Aplicacion</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
             <!-- Deja en la propiedad org.mockito:mockito-core:jar la ruta del jar de Mockito -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
